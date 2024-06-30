@@ -84,57 +84,6 @@ public class AppConfig {
 
 
 
-//    @Configuration
-//    @PropertySource("classpath:db.properties")
-//    @EnableTransactionManagement
-//    @ComponentScan(value = "web")
-//    public class AppConfig {
-//
-//        private final Environment env;
-//
-//        @Autowired
-//        public AppConfig(Environment env) {
-//            this.env = env;
-//        }
-//
-//        @Bean
-//        public DataSource getDataSource() {
-//            DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//            dataSource.setDriverClassName(env.getProperty("db.driver"));
-//            dataSource.setUrl(env.getProperty("db.url"));
-//            dataSource.setUsername(env.getProperty("db.username"));
-//            dataSource.setPassword(env.getProperty("db.password"));
-//            return dataSource;
-//        }
-//
-//        @Bean
-//        public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-//            LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-//            emf.setDataSource(getDataSource());
-//            emf.setPackagesToScan("web.models");
-//
-//            final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//            emf.setJpaVendorAdapter(vendorAdapter);
-//
-//            Properties properties = new Properties();
-//            properties.setProperty("hibernate.show_sql",env.getProperty("hibernate.show_sql"));
-//            properties.setProperty("hibernate.hbm2ddl.auto",env.getProperty("hibernate.hbm2ddl.auto"));
-//            properties.setProperty("hibernate.dialect",env.getProperty("hibernate.dialect"));
-//
-//            emf.setJpaProperties(properties);
-//
-//            return emf;
-//
-//        }
-//
-//        @Bean
-//        public PlatformTransactionManager getTransactionManager() {
-//            JpaTransactionManager jtm = new JpaTransactionManager();
-//            jtm.setEntityManagerFactory(entityManagerFactory().getObject());
-//            return jtm;
-//        }
-//
-//
-//    }
+
 
 

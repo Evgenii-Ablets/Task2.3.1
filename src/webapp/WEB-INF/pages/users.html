@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<p style="position: absolute; left: 10%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
+<p style="position: absolute; left: 20%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
     height: 50px">Users</p>
-<table border="1" ; style="position: absolute; left: 10%; top: 15%; font: italic bold 30px/40px Georgia">
+<table border="1" ; style="position: absolute; left: 20%; top: 15%; font: italic bold 30px/40px Georgia">
     <tr>
         <th>id</th>
         <th>Name</th>
@@ -20,18 +20,20 @@
         <td th:utext="${user.getAge()}">...</td>
     </tr>
 </table>
-<p><a href="users/new">New user</a></p>
-<p><a href="users/edit?id=1">Edit user 1</a></p>
 
-<form method="get" action="/users/edit">
-    <label for="id_edit" >User ID</label>
+<a href="/users/new"><input type="button" value="Create new User" style="position: absolute; left: 1%; top: 3%; font: italic bold 30px/40px Georgia; width: 300px; text-align: center;
+    height: 50px"></a>
+<form method="get" action="/users/edit" style="position: absolute; left: 5%; top: 10%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
+    height: 50px">
+    <label for="id_edit" >Enter User ID to edit</label>
     <input name="id" type="text" id="id_edit">
     <br>
     <input type="submit" value="Edit User">
 </form>
 
-    <form method="post" action="/users/delete">
-        <label for="id_delete1" >User ID</label>
+    <form method="post" action="/users/delete" style="position: absolute; left: 5%; top: 30%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
+    height: 50px">
+        <label for="id_delete1" >Enter User ID to delete</label>
         <input name="id" type="text" id="id_delete1">
         <br>
         <input type="submit" value="Delete User">

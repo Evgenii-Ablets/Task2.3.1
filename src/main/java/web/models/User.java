@@ -13,6 +13,7 @@ public class User {
     @Column(name = "name")
     private String name;
     @Column(name = "age")
+
     private int age;
     @Id
     @Column(name = "id")
@@ -22,7 +23,6 @@ public class User {
     public User(String name, int age) {
         this.name = name;
         this.age = age;
-        this.id = id;
     }
     public User() {
     }
