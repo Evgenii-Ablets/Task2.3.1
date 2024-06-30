@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity()
 @Table(name = "users")
 public class User {
     @Column(name = "name")
@@ -17,9 +17,9 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-    public User(String name, int age, int id) {
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
         this.id = id;
@@ -43,11 +43,11 @@ public class User {
         this.age = age;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
