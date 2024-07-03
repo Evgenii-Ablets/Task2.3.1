@@ -2,10 +2,12 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import web.models.User;
 import web.service.UserService;
-import web.service.UserServiceImpl;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/users")
@@ -17,7 +19,7 @@ public class UsersController {
     }
 
 
-    @GetMapping()
+    @GetMapping
     public String getUsers(Model model) {
         model.addAttribute("users", userService.getUsers());
         return "users";
@@ -30,7 +32,10 @@ public class UsersController {
     }
 
     @PostMapping("")
-    public String createNewUser(@ModelAttribute("user") User user) {
+    public String createNewUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "new";
+        }
         userService.addUser(user);
         return "redirect:/users";
     }
@@ -42,17 +47,17 @@ public class UsersController {
     }
 
     @PostMapping("/{id}")
-    public String update(@ModelAttribute("user") User user) {
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "edit";
+        }
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam("id") long id) {
-        User user = userService.getUserById(id);
-        if (user != null) {
-            userService.deleteUser(user);
-        }
+        userService.deleteUser(userService.getUserById(id));
         return "redirect:/users";
     }
 }

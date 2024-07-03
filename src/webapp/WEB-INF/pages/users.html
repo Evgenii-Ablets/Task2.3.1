@@ -18,26 +18,13 @@
         <td th:utext="${user.getId()}">...</td>
         <td th:utext="${user.getName()}">...</td>
         <td th:utext="${user.getAge()}">...</td>
+        <td><a th:href="@{/users/edit(id=${user.getId()})}">Edit</a></td>
+        <td><a th:href="@{/users/delete(id=${user.getId()})}">Delete</a></td>
     </tr>
 </table>
 
 <a href="/users/new"><input type="button" value="Create new User" style="position: absolute; left: 1%; top: 3%; font: italic bold 30px/40px Georgia; width: 300px; text-align: center;
     height: 50px"></a>
-<form method="get" action="/users/edit" style="position: absolute; left: 5%; top: 10%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
-    height: 50px">
-    <label for="id_edit" >Enter User ID to edit</label>
-    <input name="id" type="text" id="id_edit">
-    <br>
-    <input type="submit" value="Edit User">
-</form>
-
-    <form method="post" action="/users/delete" style="position: absolute; left: 5%; top: 30%; font: italic bold 30px/40px Georgia; width: 200px; text-align: center;
-    height: 50px">
-        <label for="id_delete1" >Enter User ID to delete</label>
-        <input name="id" type="text" id="id_delete1">
-        <br>
-        <input type="submit" value="Delete User">
-    </form>
 
 </body>
 </html>
